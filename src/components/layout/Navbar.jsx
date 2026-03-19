@@ -206,8 +206,8 @@ export default function Navbar() {
                 custom={NAV_LINKS.length + 1}
                 className="flex justify-center gap-4 pt-4 border-t border-white/5"
               >
-                <span className="text-[#9CA3AF] text-xs">⚡ Respuesta en menos de 1h</span>
-                <span className="text-[#9CA3AF] text-xs">🔒 Confidencial</span>
+                <span className="text-[#9CA3AF] text-xs"> Respuesta en menos de 1h</span>
+                <span className="text-[#9CA3AF] text-xs"> Confidencial</span>
               </motion.div>
             </div>
           </motion.div>

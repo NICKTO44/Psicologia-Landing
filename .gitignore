@@ -1,0 +1,32 @@
+# Dependencias — se instalan con npm install
+node_modules/
+
+# Build generado — Vercel lo genera solo
+dist/
+
+# Variables de entorno — NUNCA subir
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.cursor/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+.cache/
+.parcel-cache/

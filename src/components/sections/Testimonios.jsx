@@ -15,9 +15,6 @@ const AVATAR_GRADIENTS = [
   'from-[#9B00FF] to-[#C800FF]',
 ]
 
-const FADE_LEFT  = { background: 'linear-gradient(to right, #050505 0%, #050505 60%, transparent 100%)' }
-const FADE_RIGHT = { background: 'linear-gradient(to left,  #050505 0%, #050505 60%, transparent 100%)' }
-
 export default function Testimonios() {
   return (
     <section id="testimonios" className="py-24 overflow-hidden">
@@ -30,7 +27,6 @@ export default function Testimonios() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16"
       >
-       
         <h2 className="section-title mx-auto">
           Lo que dicen <span className="gradient-text">nuestros pacientes</span>
         </h2>
@@ -42,10 +38,14 @@ export default function Testimonios() {
 
       {/* ── Fila 1 → izquierda ── */}
       <div className="relative mb-5">
-        <div className="absolute inset-y-0 left-0 w-72 z-10 pointer-events-none" style={FADE_LEFT}  />
-        <div className="absolute inset-y-0 right-0 w-72 z-10 pointer-events-none" style={FADE_RIGHT} />
+        {/* Mobile: fade 20%, Desktop: fade 60% */}
+        <div className="absolute inset-y-0 left-0 z-10 pointer-events-none w-16 sm:w-32 lg:w-72"
+          style={{ background: 'linear-gradient(to right, #050505 0%, #050505 40%, transparent 100%)' }} />
+        <div className="absolute inset-y-0 right-0 z-10 pointer-events-none w-16 sm:w-32 lg:w-72"
+          style={{ background: 'linear-gradient(to left, #050505 0%, #050505 40%, transparent 100%)' }} />
+
         <div
-          className="flex gap-4 w-max"
+          className="flex gap-3 w-max"
           style={{ animation: 'scrollLeft 38s linear infinite' }}
           onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}
           onMouseLeave={e => e.currentTarget.style.animationPlayState = 'running'}
@@ -58,10 +58,13 @@ export default function Testimonios() {
 
       {/* ── Fila 2 → derecha ── */}
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 w-72 z-10 pointer-events-none" style={FADE_LEFT}  />
-        <div className="absolute inset-y-0 right-0 w-72 z-10 pointer-events-none" style={FADE_RIGHT} />
+        <div className="absolute inset-y-0 left-0 z-10 pointer-events-none w-16 sm:w-32 lg:w-72"
+          style={{ background: 'linear-gradient(to right, #050505 0%, #050505 40%, transparent 100%)' }} />
+        <div className="absolute inset-y-0 right-0 z-10 pointer-events-none w-16 sm:w-32 lg:w-72"
+          style={{ background: 'linear-gradient(to left, #050505 0%, #050505 40%, transparent 100%)' }} />
+
         <div
-          className="flex gap-4 w-max"
+          className="flex gap-3 w-max"
           style={{ animation: 'scrollRight 45s linear infinite' }}
           onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}
           onMouseLeave={e => e.currentTarget.style.animationPlayState = 'running'}
@@ -91,8 +94,9 @@ function TestimonioCard({ testimonio, avatarIdx }) {
 
   return (
     <div
-      className="flex flex-col gap-4 p-5 rounded-2xl w-72 shrink-0"
+      className="flex flex-col gap-4 p-5 rounded-2xl shrink-0"
       style={{
+        width: 'clamp(220px, 70vw, 288px)', /* mobile: 70% pantalla, desktop: 288px */
         background: 'linear-gradient(145deg, #111827, #0d1220)',
         border: '1px solid rgba(255,255,255,0.07)',
       }}
